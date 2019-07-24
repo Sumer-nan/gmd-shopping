@@ -1,0 +1,36 @@
+server:
+  port: 8001
+  
+spring:
+  application:    name: user-provider
+  datasource:                                  #设置数据源信息
+    type: com.alibaba.druid.pool.DruidDataSource  #设置数据库连接池的类型
+    driver-class-name: org.gjt.mm.mysql.Driver #设置数据库驱动
+    url: jdbc:mysql://127.0.0.1:3306/test      #设置数据库的url
+    username: root
+    password: 123456
+    dbcp2:
+      min-idle: 5                              #设置最小连接池数据
+      initial-size: 5                          #设置当前数据库连接池也启动时，创建的连接数
+      max-total: 10                            #设置最大连接数据
+      max-wait-millis: 2000                    #设置最大等待时间
+  jpa:
+    show-sql: true
+  mail:
+    #设置SMTP服务器    host: smtp.qq.com
+    #设置发送方的邮箱
+    username: 1105673695@qq.com
+    #设置SMTP服务密码(不是登录邮箱的密码)
+    password: unypnfcxreurjjih
+    default-encoding: utf-8
+    properties:
+      mail:        smtp:
+          auth: true
+          ssl:
+            enable: true
+      
+    
+eureka:
+  client:
+    service-url:
+       defaultZone: http://localhost:9000/eureka/
